@@ -1,5 +1,5 @@
 
-# "Dummy Switches" Plugin
+# Plugin for controlling switches over http input
 
 Example config.json:
 
@@ -8,28 +8,27 @@ Example config.json:
         {
           "accessory": "DummySwitch",
           "name": "My Switch 1"
+		  "port": 4321
         }   
     ]
 
 ```
 
-With this plugin, you can create any number of fake switches that will do nothing when turned on (and will automatically turn off right afterward, simulating a stateless switch). This can be very useful for advanced automation with HomeKit scenes.
-
-For instance, the Philips Hue app will automatically create HomeKit scenes for you based on Hue Scenes you create. But what if you want to create a scene that contains both Philips Hue actions and other actions (like turning on the coffee maker with a WeMo outlet)? You are forced to either modify the Hue-created scene (which can be a HUGE list of actions if you have lots of lights) or build your own HomeKit lighting scenes.
-
-Instead, you can link scenes using these dummy switches. Let's say you have a Hue Scene called "Rise and Shine" that you want to activate in the morning. And you have also setup the system HomeKit scene "Good Morning" to turn on your coffee maker and disarm you security system. You can add a single dummy switch to your Good Morning scene, then create a Trigger based on the switching-on of the dummy switch that also activates Rise And Shine.
-
-## Stateful Switches
-
-The default behavior of a dummy switch is to turn itself off one second after being turned on. However you may want to create a dummy switch that remains on and must be manually turned off. You can do this by passing an argument in your config.json:
-
+This plugin allows you to controll switches in Homebridge remotly via http. The plugin opens up a web server. The switch can be activated by calling
 ```
-    "accessories": [
-        {
-          "accessory": "DummySwitch",
-          "name": "My Stateful Switch 1",
-          "stateful": true
-        }   
-    ]
-
+http://<server-ip>:port/set/1
 ```
+and deactivated by calling
+```
+http://<server-ip>:port/set/0
+```
+
+For each instance of the plugin, so for each switch, an new server has to be opened on a different port, so set the ports accordingly in the config.json.
+
+###Use case
+I designed this plugin so you can use a regular switch connected to an Arduino, ESP32, ESP8266 or Raspberry Pi to controll a switch in Homebridge. If you use an Apple TV or iPad as a controller, you could set automatic to the switch, such as turning a lamp on and off.
+Of course, it is possible to adopt the plugin to other use cases.
+
+###TODO
+* Add an option to listen only to localhost
+* Other ideas?
