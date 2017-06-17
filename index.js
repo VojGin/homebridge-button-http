@@ -41,7 +41,7 @@ function HttpSwitch(log, config) {
 	var server = app.listen(this.port, function () {
 	  var host = server.address().address;
 	  var port = server.address().port;
-	  console.log('app listening at', host, port);
+	  that.log('app listening at', host, port);
 	});
 }
 
