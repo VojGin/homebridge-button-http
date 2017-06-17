@@ -1,6 +1,6 @@
 {
   "name": "homebridge-switch-http",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Get input from switches via http. Plugin for Homebridge: https://github.com/nfarina/homebridge",
   "license": "ISC",
   "keywords": [
