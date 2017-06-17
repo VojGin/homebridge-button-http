@@ -6,9 +6,9 @@ Example config.json:
 ```
     "accessories": [
         {
-          "accessory": "DummySwitch",
-          "name": "My Switch 1"
-		  "port": 4321
+          "accessory": "HttpSwitch",
+          "name": "Switch"
+          "port": 4321
         }   
     ]
 
