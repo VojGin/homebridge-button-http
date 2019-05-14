@@ -7,7 +7,7 @@ Example config.json:
     "accessories": [
         {
           "accessory": "HttpButton",
-          "name": "Button"
+          "name": "Button",
           "port": 4321
         }   
     ]
