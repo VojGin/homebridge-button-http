@@ -23,17 +23,17 @@ function HttpButton(log, config) {
 
 
   app.get('/set/0', function (req, res, next) {
-    this._service.notifyCharacteristic(Characteristic.ProgrammableSwitchEvent.SINGLE_PRESS)
+    that._service.notifyCharacteristic(Characteristic.ProgrammableSwitchEvent.SINGLE_PRESS)
     res.sendStatus(200)
   })
 
   app.get('/set/1', function (req, res, next) {
-    this._service.notifyCharacteristic(Characteristic.ProgrammableSwitchEvent.DOUBLE_PRESS)
+    that._service.notifyCharacteristic(Characteristic.ProgrammableSwitchEvent.DOUBLE_PRESS)
     res.sendStatus(200)
   })
 
   app.get('/set/2', function (req, res, next) {
-    this._service.notifyCharacteristic(Characteristic.ProgrammableSwitchEvent.LONG_PRESS)
+    that._service.notifyCharacteristic(Characteristic.ProgrammableSwitchEvent.LONG_PRESS)
     res.sendStatus(200)
   })
 
